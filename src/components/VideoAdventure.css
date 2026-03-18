@@ -1,0 +1,50 @@
+.video-adventure-section {
+  perspective: 1200px; /* Profundidad 3D para la sección */
+}
+
+/* Grano orgánico de alta fidelidad - Layer de textura */
+.video-adventure-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.035; /* Textura casi imperceptible pero vital */
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: overlay;
+}
+
+/* Texto de fondo monumental animado */
+.bg-text-floating {
+  will-change: transform;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.03); /* Contorno ultrafino */
+  color: transparent;
+  font-family: var(--font-black); /* Asegurar uso de peso extra-negro */
+}
+
+/* Contenedor del video con inercia */
+.video-wrapper {
+  will-change: transform;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-wrapper:hover {
+  transform: translateY(-15px) scale(1.01); /* Micro-levitación */
+}
+
+/* Suavizado de bordes inferiores del video */
+video {
+  mask-image: linear-gradient(to bottom, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 94%, transparent 100%);
+}
+
+/* Responsividad Tipográfica Avanzada */
+@media (max-width: 1024px) {
+  .bg-text-floating { font-size: 55vw; }
+}
+
+@media (max-width: 768px) {
+  .bg-text-floating { font-size: 65vw; }
+  .video-wrapper:hover { transform: none; } /* Desactivar hover en mobile */
+}

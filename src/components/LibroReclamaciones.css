@@ -1,0 +1,190 @@
+/* Olaya Foods - Estilo Libro de Reclamaciones Premium */
+
+.olaya-reclamaciones-page {
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.reclamaciones-hero {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px white;
+  color: transparent;
+}
+
+/* SECCIÓN DE INFORMACIÓN LEGAL */
+.info-legal-section {
+  background: #ffffff;
+}
+
+.info-card {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border-color: #05039A;
+}
+
+.info-card h3 {
+  color: #05039A;
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-card p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.info-card ul {
+  color: #64748b;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+.info-card li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Estilos de los inputs inspirados en diseño minimalista */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #05039A;
+  opacity: 0.8;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  padding: 12px 0;
+  border: none;
+  border-bottom: 2px solid #eee;
+  font-family: inherit;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  outline: none;
+  background: transparent;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-bottom-color: #05039A;
+  padding-left: 8px;
+}
+
+.input-group select {
+  cursor: pointer;
+}
+
+.input-group select option {
+  padding: 8px;
+  background: white;
+  color: #374151;
+}
+
+/* Botón de envío estilo Olaya */
+.olaya-submit-btn {
+  width: 100%;
+  background: #05039A;
+  color: white;
+  padding: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid #05039A;
+}
+
+.olaya-submit-btn:hover {
+  background: transparent;
+  color: #05039A;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(5, 3, 154, 0.1);
+}
+
+/* Personalización de Radio Buttons */
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.radio-label input[type="radio"] {
+  accent-color: #05039A;
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reclamaciones-hero h1 {
+    font-size: 3rem;
+  }
+
+  .reclamaciones-hero {
+    padding: 6rem 0 4rem 0;
+  }
+
+  .reclamaciones-hero .container {
+    padding: 0 1rem;
+  }
+
+  section.py-20 {
+    padding: 3rem 0;
+  }
+
+  form {
+    padding: 2rem 1rem !important;
+    gap: 2rem !important;
+  }
+
+  .input-group.md\\:col-span-2 {
+    grid-column: span 1 !important;
+  }
+
+  .flex.justify-between.items-end {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  .flex.gap-4 {
+    flex-wrap: wrap;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+
+  .info-card h3 {
+    font-size: 1.1rem;
+  }
+}

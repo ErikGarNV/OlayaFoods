@@ -1,0 +1,69 @@
+/* src/components/Footer.css */
+
+.footer-premium {
+  background-color: #0047AB;
+  z-index: 10;
+}
+
+/* Limpieza absoluta para la imagen del libro de reclamaciones */
+.no-background {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Contenedor de la imagen para controlar el tamaño */
+.reclamaciones-img-container {
+  width: 280px; /* Mucho más grande */
+  height: auto;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efecto hover sobre todo el enlace */
+.group:hover .reclamaciones-img-container {
+  transform: scale(1.05) rotate(-2deg);
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.4));
+}
+
+/* Responsividad: más pequeño en móviles */
+@media (max-width: 768px) {
+  .reclamaciones-img-container {
+    width: 200px;
+  }
+}
+
+/* Efecto de contorno para tipografía de lujo en hover */
+.hover-stroke:hover {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 1);
+  transform: skewX(-5deg);
+}
+
+/* Animación sutil para los enlaces pequeños */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: width 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+/* Marca de agua gigante en el fondo, fundida con el fondo azul */
+.giant-logo {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* src/components/WaveBorder.css - OLAS PERFECTAS SIN IMPERFECCIONES */
+
+.wave-border-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  transform: translateY(-65%);
+  z-index: 10;
+}
+
+.wave-svg-perfecto {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300%; /* 3x para tener suficientes olas */
+  height: 100%;
+  /* Mueve exactamente el ancho de una ola (500px) */
+  animation: wave-seamless-scroll 15s linear infinite;
+}
+
+/* Animación sin saltos - se mueve exactamente el ancho de UNA ola */
+@keyframes wave-seamless-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-500px); /* Ancho exacto de una ola */
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wave-border-container {
+    height: 120px;
+    transform: translateY(-60%);
+  }
+}
+
+@media (max-width: 480px) {
+  .wave-border-container {
+    height: 90px;
+    transform: translateY(-55%);
+  }
+}

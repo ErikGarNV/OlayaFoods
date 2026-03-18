@@ -1,0 +1,490 @@
+/* src/index.css - ⭐ ESTILOS PREMIUM AWWWARDS */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================
+   🎨 VARIABLES GLOBALES
+   ===================================== */
+@layer base {
+  :root {
+    /* Colores brand */
+    --color-primary: #8b5cf6;
+    --color-secondary: #3b82f6;
+    --color-accent: #06b6d4;
+    
+    /* Gradientes */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-ocean: linear-gradient(135deg, #0ea5e9 0%, #2563eb 50%, #7c3aed 100%);
+    --gradient-sunset: linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #dc2626 100%);
+    
+    /* Sombras premium */
+    --shadow-soft: 0 2px 40px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 60px rgba(0, 0, 0, 0.12);
+    --shadow-hard: 0 20px 80px rgba(0, 0, 0, 0.2);
+    --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.3);
+    
+    /* Typography */
+    --font-sans: "Roboto Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-display: "Roboto Condensed", "Inter", var(--font-sans);
+    
+    /* Z-index layers */
+    --z-background: -1;
+    --z-content: 1;
+    --z-header: 100;
+    --z-overlay: 500;
+    --z-modal: 1000;
+    --z-cursor: 9999;
+  }
+
+  /* Safe area (iPhone notch) */
+  .h-safe-top {
+    height: env(safe-area-inset-top);
+  }
+  
+  .h-safe-bottom {
+    height: env(safe-area-inset-bottom);
+  }
+  
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* =====================================
+   🌊 ANIMACIONES GLOBALES
+   ===================================== */
+@layer utilities {
+  /* Smooth scroll para navegadores que no soportan Lenis */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Body base */
+  body {
+    @apply bg-black text-white overflow-x-hidden;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Ocultar scrollbar pero mantener funcionalidad */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Will change para performance */
+  .will-change-transform {
+    will-change: transform, opacity;
+  }
+  
+  .will-change-all {
+    will-change: transform, opacity, filter;
+  }
+  
+  /* Gradient animado */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+  
+  /* Pulse glow effect */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Skeleton loader */
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+  }
+}
+
+/* =====================================
+   🎨 GLASS MORPHISM
+   ===================================== */
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* =====================================
+   📝 TYPOGRAPHY PREMIUM
+   ===================================== */
+@layer components {
+  /* Fluid typography */
+  .text-fluid-sm {
+    font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  }
+  
+  .text-fluid-base {
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  }
+  
+  .text-fluid-lg {
+    font-size: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+  }
+  
+  .text-fluid-xl {
+    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+  }
+  
+  .text-fluid-2xl {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  }
+  
+  .text-fluid-3xl {
+    font-size: clamp(2.5rem, 2rem + 3vw, 4rem);
+  }
+  
+  .text-fluid-4xl {
+    font-size: clamp(3rem, 2.5rem + 4vw, 5rem);
+  }
+  
+  /* Text shadows premium */
+  .text-shadow-soft {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .text-shadow-medium {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .text-shadow-hard {
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 30px currentColor;
+  }
+}
+
+/* =====================================
+   🎯 BUTTONS PREMIUM
+   ===================================== */
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 rounded-full font-semibold text-white
+           bg-gradient-to-r from-violet-600 to-indigo-600
+           hover:from-violet-500 hover:to-indigo-500
+           transition-all duration-300 ease-out
+           shadow-lg hover:shadow-xl
+           active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 rounded-full font-semibold
+           glass border border-white/20
+           hover:bg-white/10 hover:border-white/30
+           transition-all duration-300 ease-out;
+  }
+  
+  .btn-ghost {
+    @apply px-6 py-3 rounded-full font-semibold
+           hover:bg-white/5
+           transition-all duration-300 ease-out;
+  }
+  
+  .btn-magnetic {
+    @apply relative overflow-hidden;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .btn-magnetic:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* =====================================
+   🖼️ IMAGE EFFECTS
+   ===================================== */
+@layer components {
+  /* Image reveal on scroll */
+  .img-reveal {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    transition: clip-path 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .img-reveal.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  
+  /* Ken Burns effect (zoom + pan) */
+  .ken-burns {
+    animation: ken-burns 20s ease-in-out infinite alternate;
+  }
+  
+  @keyframes ken-burns {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    100% {
+      transform: scale(1.1) translate(-2%, -2%);
+    }
+  }
+  
+  /* Image hover effects */
+  .img-hover-scale {
+    @apply transition-transform duration-700 ease-out;
+  }
+  
+  .img-hover-scale:hover {
+    @apply scale-110;
+  }
+  
+  .img-hover-lift {
+    @apply transition-all duration-500 ease-out;
+  }
+  
+  .img-hover-lift:hover {
+    @apply -translate-y-2 shadow-2xl;
+  }
+}
+
+/* =====================================
+   🌊 SCROLL EFFECTS
+   ===================================== */
+@layer components {
+  /* Parallax container */
+  .parallax-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .parallax-item {
+    will-change: transform;
+  }
+  
+  /* Fade on scroll */
+  .fade-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================
+   💫 LOADING STATES
+   ===================================== */
+@layer components {
+  /* Spinner */
+  .spinner {
+    @apply inline-block w-8 h-8 border-4 border-white/20 border-t-white rounded-full;
+    animation: spin 0.8s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Dots loader */
+  .dots-loader {
+    @apply flex gap-2;
+  }
+  
+  .dots-loader span {
+    @apply w-2 h-2 bg-white rounded-full;
+    animation: bounce 1.4s infinite ease-in-out both;
+  }
+  
+  .dots-loader span:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+  
+  .dots-loader span:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+  
+  @keyframes bounce {
+    0%, 80%, 100% {
+      transform: scale(0);
+    }
+    40% {
+      transform: scale(1);
+    }
+  }
+}
+
+/* =====================================
+   🎭 UTILITY CLASSES
+   ===================================== */
+@layer utilities {
+  /* Contenedores responsive */
+  .container-fluid {
+    @apply w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24;
+  }
+  
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6;
+  }
+  
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Grid premium */
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  }
+  
+  .grid-auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  }
+  
+  /* Aspect ratios */
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+  
+  /* Truncate text */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* =====================================
+   📱 RESPONSIVE HELPERS
+   ===================================== */
+@layer utilities {
+  /* Hide on mobile */
+  .hide-mobile {
+    @apply hidden md:block;
+  }
+  
+  /* Show only on mobile */
+  .show-mobile {
+    @apply block md:hidden;
+  }
+  
+  /* Touch device optimizations */
+  @media (hover: none) and (pointer: coarse) {
+    .touch-device-only {
+      display: block;
+    }
+    
+    .no-touch-device {
+      display: none;
+    }
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .touch-device-only {
+      display: none;
+    }
+    
+    .no-touch-device {
+      display: block;
+    }
+  }
+}
+
+/* =====================================
+   🎨 PRINT STYLES
+   ===================================== */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}

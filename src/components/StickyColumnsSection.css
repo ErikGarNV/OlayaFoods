@@ -1,0 +1,1001 @@
+/* =====================================================================
+   🏆 OLAYA FOODS - STICKY COLUMNS SECTION
+   Versión: 2.0 "Deck of Cards" Architecture
+   Fix: White Voids Eliminated | Full Content on All 4 Slides
+   Estética: Editorial Gastronómico Premium
+   ===================================================================== */
+
+/* =============================================
+   TIPOGRAFÍA EDITORIAL
+   Playfair Display: Headlines (Elegancia Serif)
+   DM Sans: Body (Modernidad Geométrica)
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+
+/* =============================================
+   🎨 CSS CUSTOM PROPERTIES
+   ============================================= */
+:root {
+  /* Fondos — Paleta Gastronómica Cálida */
+  --bg-cream: #F9F7F2;
+  --bg-cream-dark: #F3F0E8;
+  --bg-sand: #F5F2EB;
+  --bg-mint: #EEF7F4;
+  --bg-white: #FEFEFE;
+  
+  /* Textos — Alto Contraste Editorial */
+  --text-carbon: #1A1A1A;
+  --text-slate: #3D3D3D;
+  --text-muted: #6B6B6B;
+  --text-subtle: #9A9A9A;
+  --text-light: #FFFFFF;
+  
+  /* Acentos Marca Olaya */
+  --olaya-red: #E31C23;
+  --olaya-red-hover: #CC1920;
+  --olaya-red-soft: rgba(227, 28, 35, 0.08);
+  --olaya-gold: #C9A227;
+  --olaya-ocean: #1E4D6B;
+  
+  /* Sombras — Estilo "Papel Flotante" */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.08),
+                 0 8px 25px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 30px 80px rgba(0, 0, 0, 0.12),
+                     0 15px 40px rgba(0, 0, 0, 0.06);
+  --shadow-image: 0 40px 100px rgba(0, 0, 0, 0.25);
+  
+  /* Bordes Orgánicos */
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --radius-full: 100px;
+  
+  /* Tipografía */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Easings Premium */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Spacing Scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+}
+
+/* =============================================
+   RESET SCOPED
+   ============================================= */
+.sticky-cols-section *,
+.sticky-cols-section *::before,
+.sticky-cols-section *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =============================================
+   🌊 CONTENEDOR PRINCIPAL
+   ============================================= */
+.sticky-cols-section {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  min-height: 100svh;
+  background-color: var(--bg-cream);
+  color: var(--text-carbon);
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+
+.sticky-cols-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* =============================================
+   📐 SISTEMA DE SLIDES — "DECK OF CARDS"
+   Cada slide es full-viewport con su propio
+   background + floating card
+   ============================================= */
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+  overflow: hidden;
+}
+
+/* Z-INDEX STACK — Slides apilados como cartas */
+.slide-0 { z-index: 10; }
+.slide-1 { z-index: 20; }
+.slide-2 { z-index: 30; }
+.slide-3 { z-index: 40; }
+
+/* =============================================
+   🖼️ BACKGROUND IMAGES — Full Bleed
+   ============================================= */
+.slide-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Overlay para legibilidad del texto */
+  background: linear-gradient(
+    135deg,
+    rgba(249, 247, 242, 0.92) 0%,
+    rgba(249, 247, 242, 0.85) 50%,
+    rgba(249, 247, 242, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+.slide-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Overlay más oscuro para slides con imágenes dramáticas */
+.slide-1 .slide-background::after,
+.slide-3 .slide-background::after {
+  background: linear-gradient(
+    135deg,
+    rgba(249, 247, 242, 0.88) 0%,
+    rgba(249, 247, 242, 0.82) 50%,
+    rgba(249, 247, 242, 0.7) 100%
+  );
+}
+
+/* =============================================
+   📦 FLOATING CARDS — Contenido Principal
+   ============================================= */
+.floating-card {
+  position: relative;
+  z-index: 10;
+  width: 90%;
+  max-width: 900px;
+  
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  
+  padding: var(--space-2xl) var(--space-xl);
+  
+  /* Breathing animation base */
+  animation: cardBreathing 6s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+/* Breathing animation — se activa cuando el usuario para de scrollear */
+@keyframes cardBreathing {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.floating-card.breathing {
+  animation-play-state: running;
+}
+
+/* =============================================
+   🏛️ CARD CONTENT LAYOUT
+   ============================================= */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-lg);
+}
+
+/* Layout Split para Product Cards */
+.card-content.split-layout {
+  flex-direction: row;
+  text-align: left;
+  align-items: flex-start;
+  gap: var(--space-2xl);
+}
+
+.card-content.split-layout .card-text {
+  flex: 1;
+}
+
+.card-content.split-layout .card-media {
+  flex: 0 0 320px;
+}
+
+/* =============================================
+   🏷️ BADGES & LABELS
+   ============================================= */
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.625rem 1.25rem;
+  
+  background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-sand) 100%);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: var(--radius-full);
+  
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-slate);
+}
+
+.badge-icon {
+  font-size: 1rem;
+}
+
+.card-badge.accent {
+  background: var(--olaya-red-soft);
+  border-color: rgba(227, 28, 35, 0.2);
+  color: var(--olaya-red);
+}
+
+/* =============================================
+   📝 TYPOGRAPHY — Editorial System
+   ============================================= */
+
+/* Headlines — Playfair Display */
+.card-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-carbon);
+}
+
+.card-title.large {
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+}
+
+/* Subtitles — Playfair Italic */
+.card-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* Body Text — DM Sans */
+.card-description {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--text-slate);
+  max-width: 600px;
+}
+
+.card-description strong {
+  color: var(--text-carbon);
+  font-weight: 600;
+}
+
+/* Highlight Text */
+.highlight-text {
+  color: var(--olaya-red);
+  font-weight: 600;
+}
+
+/* =============================================
+   🎯 FEATURES GRID
+   ============================================= */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 650px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--space-md) var(--space-sm);
+  
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: var(--radius-md);
+  
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.feature-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.feature-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-slate);
+  text-align: center;
+}
+
+/* =============================================
+   🎁 BENEFITS LIST
+   ============================================= */
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  
+  background: var(--bg-cream);
+  border-radius: var(--radius-md);
+  
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.benefit-item:hover {
+  background: var(--bg-sand);
+  transform: translateX(8px);
+}
+
+.benefit-icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.benefit-content {
+  flex: 1;
+}
+
+.benefit-title {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-carbon);
+  margin-bottom: 0.25rem;
+}
+
+.benefit-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* =============================================
+   🛒 PRODUCT SHOWCASE
+   ============================================= */
+.product-showcase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.product-image-container {
+  position: relative;
+  width: 320px; /* increased from 280 */
+  height: 320px; /* increased from 280 */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.product-image-container:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-price {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  
+  background: var(--bg-white);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-subtle);
+}
+
+.price-value {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--olaya-red);
+}
+
+/* =============================================
+   🔘 CTA BUTTONS
+   ============================================= */
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  
+  padding: 1rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  
+  transition: all 0.4s var(--ease-out-back);
+}
+
+.cta-primary {
+  background: var(--olaya-red);
+  color: var(--text-light);
+  box-shadow: 0 8px 25px rgba(227, 28, 35, 0.25);
+}
+
+.cta-primary:hover {
+  background: var(--olaya-red-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(227, 28, 35, 0.35);
+}
+
+.cta-secondary {
+  background: transparent;
+  color: var(--text-carbon);
+  border: 2px solid var(--text-carbon);
+}
+
+.cta-secondary:hover {
+  background: var(--text-carbon);
+  color: var(--text-light);
+  transform: translateY(-3px);
+}
+
+/* =============================================
+   💡 TIPS / NOTES
+   ============================================= */
+.card-tip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  
+  background: var(--bg-cream);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--olaya-gold);
+  
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.tip-icon {
+  font-size: 1.25rem;
+}
+
+.tip-text {
+  font-style: italic;
+}
+
+/* =============================================
+   ⬇️ SCROLL INDICATOR
+   ============================================= */
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  
+  color: var(--text-subtle);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  animation: gentleBounce 2s ease-in-out infinite;
+}
+
+@keyframes gentleBounce {
+  0%, 100% { 
+    transform: translateY(0); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: translateY(6px); 
+    opacity: 1; 
+  }
+}
+
+/* =============================================
+   🔘 PROGRESS DOTS
+   ============================================= */
+.progress-nav {
+  position: fixed;
+  right: var(--space-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  
+  background: rgba(0, 0, 0, 0.12);
+  border: 2px solid transparent;
+  
+  cursor: pointer;
+  transition: all 0.5s var(--ease-out-back);
+}
+
+.progress-dot:hover:not(.active) {
+  background: rgba(0, 0, 0, 0.25);
+  transform: scale(1.2);
+}
+
+.progress-dot.active {
+  background: var(--olaya-red);
+  border-color: var(--olaya-red);
+  transform: scale(1.5);
+  box-shadow: 0 0 0 4px rgba(227, 28, 35, 0.15);
+}
+
+.progress-dot:focus-visible {
+  outline: 2px solid var(--olaya-red);
+  outline-offset: 4px;
+}
+
+/* =============================================
+   🎭 STAT COUNTERS
+   ============================================= */
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2xl);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 500px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--olaya-red);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+}
+
+/* =============================================
+   🖼️ INGREDIENT GRID
+   ============================================= */
+.ingredient-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 500px;
+}
+
+.ingredient-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--space-md) var(--space-sm);
+  
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.ingredient-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+
+.ingredient-emoji {
+  font-size: 2rem;
+}
+
+.ingredient-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-slate);
+  text-align: center;
+}
+
+/* =============================================
+   📱 RESPONSIVE — TABLET
+   ============================================= */
+@media (max-width: 1024px) {
+  .floating-card {
+    width: 92%;
+    padding: var(--space-xl) var(--space-lg);
+  }
+  
+  .card-content.split-layout {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .card-content.split-layout .card-media {
+    order: -1;
+    flex: none;
+  }
+  
+  .product-image-container {
+    width: 280px; /* bumped from 240 */
+    height: 280px; /* bumped from 240 */
+  }
+  
+  .features-grid {
+    max-width: 100%;
+  }
+  
+  .stats-row {
+    gap: var(--space-xl);
+  }
+  
+  .ingredient-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 400px;
+  }
+}
+
+/* =============================================
+   📱 RESPONSIVE — MOBILE
+   ============================================= */
+@media (max-width: 768px) {
+  .floating-card {
+    width: 94%;
+    max-width: none;
+    padding: var(--space-lg) var(--space-md);
+    border-radius: var(--radius-lg);
+  }
+  
+  .card-title {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+  
+  .card-title.large {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .card-subtitle {
+    font-size: 1rem;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+  }
+  
+  .feature-item {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  .feature-icon {
+    font-size: 1.5rem;
+  }
+  
+  .benefit-item {
+    padding: var(--space-sm);
+  }
+  
+  .benefit-icon {
+    font-size: 1.5rem;
+  }
+  
+  .product-image-container {
+    width: 240px; /* raised from 200 */
+    height: 240px; /* raised from 200 */
+  }
+  
+  .cta-button {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+  }
+  
+  .cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .progress-nav {
+    right: var(--space-sm);
+    gap: var(--space-sm);
+  }
+  
+  .progress-dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .stats-row {
+    flex-direction: row;
+    gap: var(--space-lg);
+    padding: var(--space-md) 0;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.65rem;
+  }
+  
+  .ingredient-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xs);
+    max-width: 320px;
+  }
+  
+  .ingredient-item {
+    padding: var(--space-sm) var(--space-xs);
+  }
+  
+  .ingredient-emoji {
+    font-size: 1.5rem;
+  }
+  
+  .ingredient-name {
+    font-size: 0.65rem;
+  }
+}
+
+/* =============================================
+   📱 RESPONSIVE — SMALL MOBILE
+   ============================================= */
+@media (max-width: 480px) {
+  .floating-card {
+    padding: var(--space-md);
+  }
+  
+  .card-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.65rem;
+  }
+  
+  .card-title {
+    font-size: 1.6rem;
+  }
+  
+  .card-title.large {
+    font-size: 1.8rem;
+  }
+  
+  .card-content {
+    gap: var(--space-md);
+  }
+  
+  .benefits-list {
+    gap: var(--space-xs);
+  }
+  
+  .product-image-container {
+    width: 180px; /* slightly larger on smallest screens */
+    height: 180px; /* slightly larger on smallest screens */
+  }
+  
+  .stats-row {
+    gap: var(--space-md);
+  }
+}
+
+/* =============================================
+   ♿ ACCESSIBILITY
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .floating-card {
+    animation: none !important;
+  }
+  
+  .scroll-arrow {
+    animation: none !important;
+  }
+}
+
+/* Focus Visible States */
+.cta-button:focus-visible,
+.feature-item:focus-visible,
+.benefit-item:focus-visible {
+  outline: 2px solid var(--olaya-red);
+  outline-offset: 4px;
+}
+
+/* =============================================
+   🖨️ PRINT
+   ============================================= */
+@media print {
+  .sticky-cols-section {
+    height: auto;
+    overflow: visible;
+  }
+  
+  .slide {
+    position: relative;
+    page-break-inside: avoid;
+    margin-bottom: 2rem;
+  }
+  
+  .slide-background {
+    display: none;
+  }
+  
+  .floating-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    backdrop-filter: none;
+    background: white;
+  }
+  
+  .progress-nav {
+    display: none;
+  }
+}
+
+/* =============================================
+   🔲 HIGH CONTRAST
+   ============================================= */
+@media (prefers-contrast: high) {
+  .floating-card {
+    background: white;
+    border: 2px solid black;
+  }
+  
+  .card-title,
+  .card-description {
+    color: black;
+  }
+  
+  .cta-primary {
+    background: black;
+    border: 2px solid black;
+  }
+  
+  .progress-dot.active {
+    background: black;
+    border-color: black;
+  }
+}
+
+/* =============================================
+   ✨ TEXT ANIMATION LINES (GSAP SplitText)
+   ============================================= */
+.line {
+  overflow: hidden;
+  display: block;
+}
+
+.line span {
+  display: block;
+  will-change: transform;
+}
+
+/* =============================================
+   🎬 SLIDE-SPECIFIC ADJUSTMENTS
+   ============================================= */
+
+/* Slide 2 - Ocean/Process themed */
+.slide-1 .floating-card {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Slide 3 - Product Hero */
+.slide-2 .floating-card {
+  max-width: 1000px;
+}
+
+/* Slide 4 - Ingredients */
+.slide-3 .floating-card {
+  background: rgba(255, 255, 255, 0.96);
+}
