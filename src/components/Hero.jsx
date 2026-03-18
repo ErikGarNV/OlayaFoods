@@ -211,7 +211,6 @@ const Hero = ({ isMenuOpen, onToggleMenu }) => {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ opacity: 0 }}
                   onMouseEnter={(e) => {
                     gsap.to(e.currentTarget, { scale: 1.06, duration: 0.3, ease: "power2.out" });
                     gsap.to(e.currentTarget.querySelector(".wa-glow"), { opacity: 1, duration: 0.3 });
@@ -224,6 +223,7 @@ const Hero = ({ isMenuOpen, onToggleMenu }) => {
                   onMouseUp={(e) => gsap.to(e.currentTarget, { scale: 1.06, duration: 0.2, ease: "back.out(2)" })}
                   className="relative inline-flex items-center gap-3 px-7 py-4 rounded-full text-white font-semibold text-base sm:text-lg cursor-pointer select-none"
                   style={{
+                    opacity: 0,
                     background: "linear-gradient(135deg, rgba(37,211,102,0.25) 0%, rgba(18,140,60,0.35) 100%)",
                     backdropFilter: "blur(16px)",
                     WebkitBackdropFilter: "blur(16px)",
