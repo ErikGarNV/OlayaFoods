@@ -73,6 +73,6 @@ export const animateHeroTextCycle = (element, texts) => {
 export const heroTexts = [
   "",
   "Conservamos recetas, ahorramos tiempo",
-  "Transformamos recetas marinas tradicionales en comidas ricas, practicas, nutritivas y listas para disfrutar",
+  "Transformamos Aguadito de Calamar Gigante tradicionales en comidas ricas, practicas, nutritivas y listas para disfrutar",
   "CONSERVAMOS LA SAZÓN DE CASA, AHORRAMOS TU TIEMPO",
 ];

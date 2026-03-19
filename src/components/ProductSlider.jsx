@@ -15,7 +15,7 @@ const productsData = [
     accent: "#C5E5FD",
     desc: "El abrazo del hogar en un formato moderno. Pesca artesanal con el toque exacto de cilantro y ajíes peruanos.",
     nutrition: { Calorías: "180 kcal", Proteína: "15g", "Omega-3": "Alto", Sodio: "Bajo" },
-    wa: "https://wa.me/51948499896?text=Hola!%20Quiero%20el%20Combo%20Aguadito"
+    wa: "https://wa.me/51916653407?text=Hola!%20Quiero%20el%20Combo%20Aguadito"
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const productsData = [
     accent: "#ffffff",
     desc: "Cremosidad absoluta. Una receta que honra nuestras raíces marinas con ingredientes 100% naturales.",
     nutrition: { Calorías: "210 kcal", Proteína: "18g", "Omega-3": "Alto", Sodio: "Bajo" },
-    wa: "https://wa.me/51948499896?text=Hola!%20Quiero%20el%20Combo%20Chupe"
+    wa: "https://wa.me/51916653407?text=Hola!%20Quiero%20el%20Combo%20Chupe"
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const productsData = [
     accent: "#E31C23",
     desc: "Medallones de caballa con el picante justo. Perfecto para quienes buscan intensidad y salud en cada bocado.",
     nutrition: { Calorías: "195 kcal", Proteína: "16g", "Omega-3": "Alto", Sodio: "Medio" },
-    wa: "https://wa.me/51948499896?text=Hola!%20Quiero%20el%20Combo%20Escabeche"
+    wa: "https://wa.me/51916653407?text=Hola!%20Quiero%20el%20Combo%20Escabeche"
   }
 ];
 

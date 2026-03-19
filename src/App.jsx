@@ -68,7 +68,7 @@ function App() {
         </section>
 
         {/* 🆕 NIVEL 4: Product Showcase (Detalle de Calidad)
-            Aquí presentamos: Recetas Marinas, Nutritivo e Ideal para el día a día. */}
+            Aquí presentamos: Aguadito de Calamar Gigante, Nutritivo e Ideal para el día a día. */}
         <section id="showcase">
           <ProductShowcase />
         </section>

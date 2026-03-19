@@ -8,21 +8,21 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const infoProducts = [
   {
-    title: "Recetas marinas",
-    tagline: "El mar en su máxima expresión.",
-    description: "Seleccionamos los mejores insumos de nuestro litoral para llevar a tu mesa platos tradicionales con el sabor auténtico de las caletas peruanas.",
+    title: "Aguadito de Calamar Gigante",
+    tagline: "Nuestra pócima de energía",
+    description: "Usamos la pota que aprendimos a valorar en las caletas, le agregamos arroz, zanahoria, arbeja, choclo, agua, culantro, cebolla, etc y la transformamos en una sopa espesa y vibrante",
     img: "/Lata Aguadito de Calamar.jpg", 
   },
   {
-    title: "Nutritivo y balanceado",
-    tagline: "Energía real para tu cuerpo.",
-    description: "Nuestras comidas están diseñadas para ofrecerte un equilibrio nutricional óptimo, sin conservantes artificiales y con todo el poder de las proteínas marinas.",
+    title: "Chupe de Bonito",
+    tagline: "Cremoso y potente con ese ADN marino",
+    description: "Usamos el Bonito que nos ofrece nuestro rico mar,  le agregamos habas, choclo, papa, zapallo, arroz, agua, tomate, harina de yuca, cebolla, aji amarillo y lo transformamos en un chupe cremoso y reconfortante",
     img: "/Lata Chupe de bonito.jpg",
   },
   {
-    title: "Ideal para tu día a día",
-    tagline: "Práctico, rápido y delicioso.",
-    description: "Sabemos que tu tiempo vale. Por eso, nuestras recetas están listas para disfrutar en minutos, facilitando tu rutina sin sacrificar la calidad.",
+    title: "Escabeche de Caballa Picante",
+    tagline: "La joya de la versatilidad.",
+    description: "Pescado azul de alta calidad con el equilibrio perfecto de ají, como lo comerías frente al mar",
     img: "/Lata Medallones de caballa Picante.jpg",
   }
 ];
@@ -87,24 +87,19 @@ const ProductShowcase = () => {
             }`}
           >
             {/* Imagen con efecto Reveal */}
-            <div className="w-full md:w-1/2 overflow-hidden">
-              <div className="image-wrap relative aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+            <div className="w-full md:w-3/5 overflow-hidden"> {/* He aumentado el ancho del contenedor de la imagen */}
+              <div className="image-wrap relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl"> {/* He aumentado el redondeado a 3xl */}
                 <img 
                   src={product.img} 
                   alt={product.title} 
-                  className="w-full h-full object-cover"
-                />
+                  className="absolute inset-0 w-full h-full object-contain p-4" />
                 
-                {/* --- ESTE ERA EL PROBLEMA: HE ELIMINADO EL DIV QUE CREABA EL PUNTO BLANCO --- */}
-                {/* <div className="absolute top-6 left-6 text-4xl bg-white/90 backdrop-blur-sm p-4 rounded-full shadow-lg">
-                  {product.icon}
-                </div> */}
-                
+                {/* --- ELIMINADO EL DIV QUE CREABA EL PUNTO BLANCO --- */}
               </div>
             </div>
 
             {/* Texto */}
-            <div className="w-full md:w-1/2">
+            <div className="w-full md:w-2/5"> {/* He reducido el ancho del texto para mantener la simetría y espacio con la imagen más grande */}
               <h3 className="text-4xl md:text-6xl font-bold text-stone-900 mb-6 leading-none tracking-tighter">
                 {product.title}
               </h3>

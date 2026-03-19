@@ -94,7 +94,7 @@ const SLIDES_DATA = {
     ],
     price: 'S/ 19.90',
     tip: 'Mezcla con leche, calienta y sirve con ají',
-    whatsapp: 'https://wa.me/51948499896?text=Hola!%20Me%20interesa%20el%20Chupe%20de%20Bonito',
+    whatsapp: 'https://wa.me/51916653407?text=Hola!%20Me%20interesa%20el%20Chupe%20de%20Bonito',
     productImage: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=80',
     bgImage: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80',
   },
@@ -685,7 +685,7 @@ const StickyColumnsSection = () => {
 
               <div className="cta-group">
                 <a
-                  href="https://wa.me/51948499896?text=Hola!%20Quiero%20conocer%20más%20sobre%20Olaya%20Foods"
+                  href="https://wa.me/51916653407?text=Hola!%20Quiero%20conocer%20más%20sobre%20Olaya%20Foods"
                   className="cta-button cta-primary"
                   target="_blank"
                   rel="noopener noreferrer"
