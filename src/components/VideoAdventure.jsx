@@ -11,7 +11,7 @@ const recipeVideos = [
   {
     id: 1,
     title: "Aguadito",
-    fullName: "Técnica del Aguadito de Bonito",
+    fullName: "Técnica del Aguadito de calamar gigante",
     video: "/videos/aguadito.mp4",
     tag: "Herencia Marítima / Culantro Fresco",
     desc: "El equilibrio perfecto entre la pesca artesanal y el ADN de la cocina hogareña peruana."
