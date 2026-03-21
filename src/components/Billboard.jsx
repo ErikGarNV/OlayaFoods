@@ -12,7 +12,7 @@ const combos = [
     name: "COMBO CLÁSICO",
     price: "S/ 25",
     desc: "El inicio perfecto",
-    detail: "3 latas seleccionadas · Sabor tradicional peruano",
+    detail: "4 latas seleccionadas · Sabor tradicional peruano",
     badge: "MÁS POPULAR",
     img: "/WhatsApp Image 2026-03-18 at 18.16.33-2.jpeg",
     accent: "#E8B84B",
