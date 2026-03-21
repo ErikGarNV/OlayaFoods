@@ -88,15 +88,7 @@ function App() {
           <StoryTime />
         </section>
 
-        {/* NIVEL 7: El Ritual Olaya */}
-        <section id="ritual">
-          <Ritual />
-        </section>
-
-        {/* NIVEL 8: Aventura y Lifestyle */}
-        <section id="aventura">
-          <VideoAdventure />
-        </section>
+        
       </main>
 
       <Footer />
