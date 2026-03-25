@@ -11,19 +11,24 @@ const Beneficios = () => {
 
   const beneficios = [
     {
-      title: "Sazón de Casa",
-      desc: "Ingredientes 100% naturales, sin preservantes",
-      tag: "01 / TRADICIÓN"
+      title: "Sabor que Nace en Casa",
+      desc: "Recetas auténticas con ingredientes naturales, sin artificios, respetando el sabor original de la comida real.",
+      tag: "01 / ORIGEN"
     },
     {
-      title: "Nutrición",
-      desc: "Alto contenido de proteína y Omega 3",
-      tag: "02 / CALIDAD"
+      title: "Nutrición que se Siente",
+      desc: "Alimentos ricos en proteína y Omega 3 que nutren tu cuerpo y aportan energía real.",
+      tag: "02 / VALOR"
     },
     {
-      title: "Tiempo para Ti",
-      desc: "Ahorramos tu tiempo sin sacrificar el sabor. Listo en minutos",
-      tag: "03 / PRÁCTICO"
+      title: "Más Tiempo para Vivir",
+      desc: "Comida lista en minutos para disfrutar sin cocinar horas, sin perder calidad ni sabor.",
+      tag: "03 / LIBERTAD"
+    },
+    {
+      title: "Impacto que Trasciende",
+      desc: "Nuestro modelo de negocio impulsa la pesca artesanal, genera empleo y protege el equilibrio del ecosistema marino",
+      tag: "04 / PROPÓSITO"
     }
   ];
 

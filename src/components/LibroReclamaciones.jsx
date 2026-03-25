@@ -247,7 +247,7 @@ const LibroReclamaciones = () => {
               <div className="text-[9px] text-gray-400 space-y-2 mt-12 border-t pt-8">
                 <p><strong>* RECLAMO:</strong> Disconformidad relacionada a los productos o servicios de Olaya Foods.</p>
                 <p><strong>** QUEJA:</strong> Disconformidad no relacionada a los productos o servicios; malestar o descontento respecto a la atención al público.</p>
-                <p><strong>Olaya Foods SAC</strong> | RUC: 20XXXXXXXXX | Dirección Fiscal: Lima, Perú | Email: administracion@olayafoods.pe</p>
+                <p><strong>Olaya Foods SAC</strong> | RUC: 20XXXXXXXXX | Dirección Fiscal: Lima, Perú | Email: administracion@olavafoods.pe@olayafoods.pe</p>
                 <p>Conforme al Código de Protección y Defensa del Consumidor - Ley N° 29571 y su Reglamento.</p>
               </div>
             </div>

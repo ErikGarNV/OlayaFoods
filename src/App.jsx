@@ -83,6 +83,10 @@ function App() {
           <Billboard />
         </section>
 
+        <section id="ritual">
+          <Ritual />
+        </section>
+
       {/* NIVEL 2: Historia y Propósito */}
         <section id="historia">
           <StoryTime />

@@ -78,7 +78,7 @@ const EmailHero = () => {
 
       <div className="footer-email-wrap">
         <motion.a
-          href="mailto:administracion@olavafoods.pe"
+          href="mailto:administracion@olavafoods.pe@olavafoods.pe"
           className="footer-email-giant"
           initial={{ opacity: 0, y: 60 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -95,13 +95,13 @@ const EmailHero = () => {
             initial="initial"
             aria-hidden="true"
           >
-            administracion
+            administracion@olavafoods.pe
             <br />@olavafoods.pe
           </motion.span>
 
           <span className="footer-email-real">
-            administracion
-            <br />@olavafoods.pe
+            administracion@olavafoods.pe
+            <br />
           </span>
         </motion.a>
       </div>
