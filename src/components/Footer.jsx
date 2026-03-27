@@ -191,8 +191,8 @@ const FooterCompleto = () => {
             <div className="footer-nav-col">
               <p className="footer-nav-label">LEGAL</p>
               <nav className="footer-nav-list">
-                <ScrambleLink href="#privacidad" className="footer-nav-link">PRIVACIDAD</ScrambleLink>
-                <ScrambleLink href="#terminos" className="footer-nav-link">TÉRMINOS</ScrambleLink>
+                <ScrambleLink href="/privacidad" className="footer-nav-link">PRIVACIDAD</ScrambleLink>
+                <ScrambleLink href="/terminos" className="footer-nav-link">TÉRMINOS</ScrambleLink>
               </nav>
             </div>
 
