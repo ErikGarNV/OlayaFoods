@@ -208,7 +208,7 @@ Para la resolución de conflictos con consumidores, OlayaFoods pone a disposici�
             className="text-[10px] uppercase font-black tracking-[0.5em] opacity-60 block"
             style={{ fontFamily: "'Roboto Condensed', sans-serif" }}
           >
-            Marco Legal · Olaya Foods SAC
+            Marco Legal · Marcab Sustainable investments S.a.C.
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
@@ -379,7 +379,7 @@ Para la resolución de conflictos con consumidores, OlayaFoods pone a disposici�
                 </p>
                 <p className="text-sm leading-relaxed text-white/80 font-light"
                   style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>
-                  <strong className="font-black text-white">Olaya Foods SAC</strong> · RUC: 20XXXXXXXXX · Lima, Perú<br />
+                  <strong className="font-black text-white">Marcab Sustainable investments S.a.C.</strong> · RUC: 20610524681 · Lima, Perú<br />
                   Email: administracion@olayafoods.pe · WhatsApp: +51 916 653 407<br />
                   Conforme al Código de Protección y Defensa del Consumidor – Ley N° 29571 y su Reglamento.
                 </p>

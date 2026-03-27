@@ -135,7 +135,7 @@ const LibroReclamaciones = () => {
                 </div>
                 <div className="text-right">
                   <h2 className="text-2xl font-black uppercase tracking-tighter text-[#05039A]">Hoja de Reclamaciones</h2>
-                  <p className="text-xs text-gray-500 uppercase tracking-wider">Olaya Foods SAC</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider">Marcab Sustainable investments S.a.C.</p>
                 </div>
               </div>
             </div>
@@ -247,7 +247,7 @@ const LibroReclamaciones = () => {
               <div className="text-[9px] text-gray-400 space-y-2 mt-12 border-t pt-8">
                 <p><strong>* RECLAMO:</strong> Disconformidad relacionada a los productos o servicios de Olaya Foods.</p>
                 <p><strong>** QUEJA:</strong> Disconformidad no relacionada a los productos o servicios; malestar o descontento respecto a la atención al público.</p>
-                <p><strong>Olaya Foods SAC</strong> | RUC: 20XXXXXXXXX | Dirección Fiscal: Lima, Perú | Email: administracion@olavafoods.pe@olayafoods.pe</p>
+                <p><strong>Marcab Sustainable investments S.a.C.</strong> | RUC: 20610524681 | Dirección Fiscal: Lima, Perú | Email: administracion@olavafoods.pe@olayafoods.pe</p>
                 <p>Conforme al Código de Protección y Defensa del Consumidor - Ley N° 29571 y su Reglamento.</p>
               </div>
             </div>
@@ -265,7 +265,7 @@ const LibroReclamaciones = () => {
               permitiendo que comas como en casa aun cuando no tengas tiempo para cocinar.
             </p>
             <div className="text-[10px] text-white/40 uppercase tracking-[0.3em]">
-              © {new Date().getFullYear()} Olaya Foods SAC - Todos los derechos reservados
+              © {new Date().getFullYear()} Marcab Sustainable investments S.a.C. - Todos los derechos reservados
             </div>
           </div>
         </div>
